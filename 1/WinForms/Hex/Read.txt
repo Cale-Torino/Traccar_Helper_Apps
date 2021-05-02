@@ -1,0 +1,11 @@
+//
+//
+
+you need: 
+
+sed.exe
+Hex_cmd.exe
+Start.bat
+and some input file I'm using " Server.log "
+
+run Start.bat and the file will be proccessed feel free to mod

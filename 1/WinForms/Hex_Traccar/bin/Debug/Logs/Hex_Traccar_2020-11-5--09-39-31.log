@@ -1,0 +1,27 @@
+[2020/05/11 09:39:31] :  ***- APPLICATION STARTED -*** 
+[2020/05/11 09:39:43] :  ***Input File Chosen*** 
+[2020/05/11 09:39:43] :  Input File Chosen:C:\Users\fitgirl\source\repos\Hex_Traccar\Hex_Traccar\bin\Debug\Server.log
+[2020/05/11 09:39:48] :  ***Converted Single String*** 
+[2020/05/11 09:39:48] : Un-Converted String:asdad
+[2020/05/11 09:39:48] :  Converted String:
+[2020/05/11 09:39:49] :  ***Copy Single String*** 
+[2020/05/11 09:39:49] :  Copy Single String:
+[2020/05/11 09:39:53] :  ***HEX to ANCII*** 
+[2020/05/11 09:39:53] :  HEX to ANCII Clicked
+[2020/05/11 09:40:06] :  ***+RESP:GTERI*** 
+[2020/05/11 09:40:06] :  +RESP:GTERI Clicked
+[2020/05/11 09:40:08] :  ***+RESP:GTFSD*** 
+[2020/05/11 09:40:08] :  +RESP:GTFSD Clicked
+[2020/05/11 09:40:14] :  ***+RESP:GTFRI*** 
+[2020/05/11 09:40:14] :  +RESP:GTFRI Clicked
+[2020/05/11 09:40:17] :  ***+RESP:GTEPS*** 
+[2020/05/11 09:40:17] :  +RESP:GTEPS Clicked
+[2020/05/11 09:40:19] :  ***+RESP:GTINF*** 
+[2020/05/11 09:40:19] :  +RESP:GTINF Clicked
+[2020/05/11 09:40:22] :  ***+RESP:GTMPF*** 
+[2020/05/11 09:40:22] :  +RESP:GTMPF Clicked
+[2020/05/11 09:40:23] :  ***Clear Memo*** 
+[2020/05/11 09:40:23] :  Clear Clicked
+[2020/05/11 09:41:00] :  ***Custom Query*** 
+[2020/05/11 09:41:00] :  Custom Query:+SACK:GTHBD
+[2020/05/11 09:41:30] :  ***Exit Clicked*** 
