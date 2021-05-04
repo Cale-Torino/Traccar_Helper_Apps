@@ -17,7 +17,7 @@
 Use the HexConvertClass.cs ConvertHex(string hexString) methoud to convert the strings from **HEX** to **ANCII**.
 Below is an example of the main element of this program:
 
-```
+```C#
     // HexConvertClass Allows us to input a HEX string and return ANCII.
     class HexConvertClass
     {
