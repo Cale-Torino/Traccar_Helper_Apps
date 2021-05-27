@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-//admin@safe-tvigil.com
-//RGKYoEpRliktI5c_2321Gs
 if (!Array.prototype.find) {
   Object.defineProperty(Array.prototype, "find", {
     value: function(predicate) {
