@@ -61,12 +61,11 @@ namespace Hex_Traccar
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            //load
+            //form load
             CreateFolder();
             textBox2.Text = "Please Select An Input Directory";
             Logger.WriteLine(" ***- APPLICATION STARTED -*** ");
-            string path = Application.StartupPath + "\\Temp";
-            DirectoryInfo di = new DirectoryInfo(path);
+            DirectoryInfo di = new DirectoryInfo(Application.StartupPath + "\\Temp");
             if (Properties.Settings.Default.pathname != string.Empty)
             {
                 textBox2.Text = Properties.Settings.Default.pathname;
