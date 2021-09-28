@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using static Hex_Traccar.LoggerClass1;
 
@@ -48,10 +43,10 @@ namespace Hex_Traccar
             {
                 //CreatFolder
                 //string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                //Directory.CreateDirectory(path + "\\Hex_Traccar\\Logs");
+                //Directory.CreateDirectory(path + @"\Hex_Traccar\Logs");
                 string path = Application.StartupPath;
-                Directory.CreateDirectory(path + "\\Logs");
-                Directory.CreateDirectory(path + "\\Temp");
+                Directory.CreateDirectory(path + @"\Logs");
+                Directory.CreateDirectory(path + @"\Temp");
             }
             catch (Exception ex)
             {
@@ -65,7 +60,7 @@ namespace Hex_Traccar
             CreateFolder();
             textBox2.Text = "Please Select An Input Directory";
             Logger.WriteLine(" ***- APPLICATION STARTED -*** ");
-            DirectoryInfo di = new DirectoryInfo(Application.StartupPath + "\\Temp");
+            DirectoryInfo di = new DirectoryInfo(Application.StartupPath + @"\Temp");
             if (Properties.Settings.Default.pathname != string.Empty)
             {
                 textBox2.Text = Properties.Settings.Default.pathname;
@@ -259,9 +254,9 @@ namespace Hex_Traccar
                         string _line = HexConvertClass.ConvertHex(line);
                         Invoke((MethodInvoker)(() => textBox1.AppendText(_line + Environment.NewLine)));
                     }
-                    File.WriteAllText("Temp\\Converted.log", textBox1.Text);
+                    File.WriteAllText(@"Temp\Converted.log", textBox1.Text);
                 }
-                File.Delete("Temp\\Input.txt");
+                File.Delete(@"Temp\Input.txt");
                 ProgressC();
                 MessageBox.Show("StreamReader Has Completed!", "StreamReader Has Completed!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -312,15 +307,15 @@ namespace Hex_Traccar
                 Logger.WriteLine(" ***HEX to ANCII*** ");
                 Logger.WriteLine(" HEX to ANCII Clicked");
                 Progressw();
-                Classes.SedClassV2.SedActions("/c SED -n /HEX:/p " + textBox2.Text + " > Temp\\processedA.temp");
+                Classes.SedClassV2.SedActions("/c SED -n /HEX:/p " + textBox2.Text + @" > Temp\processedA.temp");
                 Classes.SedClassV2.SedActions("/c SED s/.*HEX// Temp\\processedA.temp > Temp\\processedB.temp");
-                File.Delete("Temp\\processedA.temp");
+                File.Delete(@"Temp\processedA.temp");
                 Classes.SedClassV2.SedActions("/c SED \"s/: /&\\n/g\" Temp\\processedB.temp > Temp\\processedC.temp");
-                File.Delete("Temp\\processedB.temp");
+                File.Delete(@"Temp\processedB.temp");
                 Classes.SedClassV2.SedActions("/c SED -i \"s/: /0A/g\" Temp\\processedC.temp");
                 Classes.SedClassV2.SedActions("/c SED \"/0A/d\" Temp\\processedC.temp > Temp\\Input.txt");
-                File.Delete("Temp\\processedC.temp");
-                ReadLines("Temp\\Input.txt");
+                File.Delete(@"Temp\processedC.temp");
+                ReadLines(@"Temp\Input.txt");
             }
         }
 
@@ -349,7 +344,7 @@ namespace Hex_Traccar
             Classes.SedClassV2.SedActions("/c SED -n \"/^+RESP:GTERI/p\" Temp\\Converted.log > Temp\\GTERI_Only.log");
             Logger.WriteLine(" ***+RESP:GTERI*** ");
             Logger.WriteLine(" +RESP:GTERI Clicked");
-            ConvertedLines("Temp\\GTERI_Only.log");
+            ConvertedLines(@"Temp\GTERI_Only.log");
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -358,7 +353,7 @@ namespace Hex_Traccar
             Classes.SedClassV2.SedActions("/c SED -n \"/^+RESP:GTFSD/p\" Temp\\Converted.log > Temp\\GTFSD_Only.log");
             Logger.WriteLine(" ***+RESP:GTFSD*** ");
             Logger.WriteLine(" +RESP:GTFSD Clicked");
-            ConvertedLines("Temp\\GTFSD_Only.log");
+            ConvertedLines(@"Temp\GTFSD_Only.log");
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -367,7 +362,7 @@ namespace Hex_Traccar
             Classes.SedClassV2.SedActions("/c SED -n \"/^+RESP:GTFRI/p\" Temp\\Converted.log > Temp\\GTFRI_Only.log");
             Logger.WriteLine(" ***+RESP:GTFRI*** ");
             Logger.WriteLine(" +RESP:GTFRI Clicked");
-            ConvertedLines("Temp\\GTFRI_Only.log");
+            ConvertedLines(@"Temp\GTFRI_Only.log");
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -376,7 +371,7 @@ namespace Hex_Traccar
             Classes.SedClassV2.SedActions("/c SED -n \"/^+RESP:GTEPS/p\" Temp\\Converted.log > Temp\\GTEPS_Only.log");
             Logger.WriteLine(" ***+RESP:GTEPS*** ");
             Logger.WriteLine(" +RESP:GTEPS Clicked");
-            ConvertedLines("Temp\\GTEPS_Only.log");
+            ConvertedLines(@"Temp\GTEPS_Only.log");
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -385,7 +380,7 @@ namespace Hex_Traccar
             Classes.SedClassV2.SedActions("/c SED -n \"/^+RESP:GTINF/p\" Temp\\Converted.log > Temp\\GTINF_Only.log");
             Logger.WriteLine(" ***+RESP:GTINF*** ");
             Logger.WriteLine(" +RESP:GTINF Clicked");
-            ConvertedLines("Temp\\GTINF_Only.log");
+            ConvertedLines(@"Temp\GTINF_Only.log");
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -394,7 +389,7 @@ namespace Hex_Traccar
             Classes.SedClassV2.SedActions("/c SED -n \"/^+RESP:GTMPF/p\" Temp\\Converted.log > Temp\\GTMPF_Only.log");
             Logger.WriteLine(" ***+RESP:GTMPF*** ");
             Logger.WriteLine(" +RESP:GTMPF Clicked");
-            ConvertedLines("Temp\\GTMPF_Only.log");
+            ConvertedLines(@"Temp\GTMPF_Only.log");
         }
         private void Custom_Query()
         {
@@ -406,7 +401,7 @@ namespace Hex_Traccar
                     Classes.SedClassV2.SedActions("/c SED -n \"/^" + _query + "/p\" Temp\\Converted.log > Temp\\Custom_Only.log");
                     Logger.WriteLine(" ***Custom Query*** ");
                     Logger.WriteLine(" Custom Query:" + _query);
-                    ConvertedLines("Temp\\Custom_Only.log");
+                    ConvertedLines(@"Temp\Custom_Only.log");
                 }
                 else
                 {
